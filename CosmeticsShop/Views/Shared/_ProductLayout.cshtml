@@ -28,70 +28,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
     <!--header-->
+    @{
+        CosmeticsShop.Models.User user = Session["User"] as CosmeticsShop.Models.User;}
     <div class="header">
-        <div class="header-top">
-            <div class="container">
-                <div class="col-sm-4 logo animated wow fadeInLeft" data-wow-delay=".5s">
-                    <h1><a href="index.html">Cosmetics <span>Shop</span></a></h1>
-                </div>
-                <div class="col-sm-4 world animated wow fadeInRight" data-wow-delay=".5s">
-                    <div class="cart box_1">
-                        <a href="/Cart/Checkout">
-                            <h3>
-                                <div class="total">
-                                    @{
-                                        List<CosmeticsShop.Models.ItemCart> itemCarts = Session["Cart"] as List<CosmeticsShop.Models.ItemCart>;
-                                        if (itemCarts != null && itemCarts.Count > 0)
-                                        {
-                                            <span class="simpleCart_total">@itemCarts.Sum(x => x.ProductPrice * x.Quantity).ToString("#,##")₫ (@itemCarts.Sum(x => x.Quantity))</span>
-                                        }
-                                        else
-                                        {
-                                            <span class="simpleCart_total">0₫ (0)</span>
-                                        }
-                                    }
-                                </div>
-                                <img src="~/Content/images/cart.png" alt="" />
-                            </h3>
-                        </a>
-                    </div>
-                </div>
-                @{
-                    CosmeticsShop.Models.User user = Session["User"] as CosmeticsShop.Models.User;
-
-                    if (user != null)
-                    {
-                        <input type="text" id="UserID" value="@user.ID" hidden />
-                        <div class="col-sm-2 number animated wow fadeInRight" data-wow-delay=".5s">
-                            <span><i class="glyphicon glyphicon-user"></i><a href="/User/CheckoutOrder">@user.Name</a></span>
-                        </div>
-                    }
-                }
-                <div class="col-sm-2 search animated wow fadeInRight" data-wow-delay=".5s">
-                    <a class="play-icon popup-with-zoom-anim" href="#small-dialog"><i class="glyphicon glyphicon-search"> </i> </a>
-                </div>
-                <div class="clearfix"> </div>
-            </div>
-        </div>
         <div class="container">
             <div class="head-top">
-                <div class="n-avigation">
-
-                    <nav class="navbar nav_bottom" role="navigation">
-
-                        <!-- Brand and toggle get grouped for better mobile display -->
-                        <div class="navbar-header nav_2">
-                            <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                            <a class="navbar-brand" href="#"></a>
-                        </div>
-                        <!-- Collect the nav links, forms, and other content for toggling -->
-                        <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
-                            <ul class="nav navbar-nav nav_1">
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+                    <ul class="nav navbar-nav nav_1"
+                                <li>
+                                    <div class="col-sm-4 logo animated wow fadeInLeft" data-wow-delay=".5s">
+                                        <h1><a href="index.html">Thực Phẩm <span>Shop</span></a></h1>
+                                    </div>
+                                </li>
                                 <li><a href="/">Trang chủ</a></li>
                                 <li><a href="/Product/">Sản phẩm</a></li>
                                 @if (user != null)
@@ -103,13 +52,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <li><a href="/Home/SignUp">Đăng ký</a></li>
                                     <li><a href="/Home/SignIn">Đăng nhập</a></li>
                                 }
+                            <li>
+                                <a href="/Cart/Checkout">
+                                    <h3>
+                                        <div class="total">
+                                            @{
+                                                List<CosmeticsShop.Models.ItemCart> itemCarts = Session["Cart"] as List<CosmeticsShop.Models.ItemCart>;
+                                                if (itemCarts != null && itemCarts.Count > 0)
+                                                {
+                                                    <span class="simpleCart_total">@itemCarts.Sum(x => x.ProductPrice * x.Quantity).ToString("#,##")₫ (@itemCarts.Sum(x => x.Quantity))</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="simpleCart_total">0₫ (0)</span>
+                                                }
+                                                <img src="~/Content/images/cart.png" alt="" />
+                                                <a class="play-icon popup-with-zoom-anim" href="#small-dialog"><i class="glyphicon glyphicon-search"> </i> </a>
+                                            }
+                                        </div>
+                                    </h3>
+
+                                </a>
+
+                            </li>
                             </ul>
-                        </div><!-- /.navbar-collapse -->
-
-                    </nav>
-                </div>
-
-
+                </div><!-- /.navbar-collapse -->
                 <div class="clearfix"> </div>
                 <!---pop-up-box---->
                 <link href="~/Content/css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
@@ -151,10 +118,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="chatbox chatbox22 chatbox--tray">
             <div class="chatbox__title">
                 <h5><a href="javascript:void()">Chat với chúng tôi</a></h5>-->
-                <!--<button class="chatbox__title__tray">
-                    <span></span>
-                </button>-->
-                <!--<button class="chatbox__title__close">
+    <!--<button class="chatbox__title__tray">
+        <span></span>
+    </button>-->
+    <!--<button class="chatbox__title__close">
                     <span>
                         <svg viewBox="0 0 12 12" width="12px" height="12px">
                             <line stroke="#FFFFFF" x1="11.75" y1="0.25" x2="0.25" y2="11.75"></line>
