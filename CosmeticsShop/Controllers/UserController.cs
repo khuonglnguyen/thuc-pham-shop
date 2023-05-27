@@ -37,7 +37,7 @@ namespace CosmeticsShop.Controllers
             }
             string urlBase = Request.Url.GetLeftPart(UriPartial.Authority) + Url.Content("~");
             ViewBag.Email = "Truy cập vào Email để xác minh tài khoản: " + user.Email;
-            SentMail("Mã xác minh tài khoản", user.Email, "khuongip564gb@gmail.com", "Xác minh nhanh bằng cách click vào link: " + urlBase + "User/ConfirmEmailLink/" + ID + "?Captcha=</p>");
+            SentMail("Mã xác minh tài khoản", user.Email, "khuongip564gb@gmail.com", "Xác minh nhanh bằng cách click vào link: " + urlBase + "User/ConfirmEmailLink/" + ID + "?Captcha=" + user.Captcha + "</p>");
             return View();
         }
         [HttpGet]
